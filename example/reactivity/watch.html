@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="/packages/reactivity/dist/reactivity.global.js"></script>
+</head>
+<body>
+<script>
+  const {watch, reactive} = VueReactivity;
+  const state = reactive({name: "jw", address: {num: 1}})
+
+  watch(()=>state.name, (newVal, oldVal) => {
+    console.log(newVal, oldVal)
+  })
+  setTimeout(() => {
+    state.name = "123"
+  }, 1000)
+</script>
+</body>
+</html>
