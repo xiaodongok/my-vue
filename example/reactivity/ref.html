@@ -6,6 +6,18 @@
 </head>
 <script src="/packages/reactivity/dist/reactivity.global.js"></script>
 <body>
+<div id="app"></div>
+<script>
+  import {reactive} from "../../packages/reactivity/src";
 
+  const {ref, effect} = VueReactivity
+
+  const state = ref("123")
+  console.log(state)
+  effect(() => {
+    app.innerHTML = state.value
+  })
+  state.value = "456"
+</script>
 </body>
 </html>
